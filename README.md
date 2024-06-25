@@ -1,10 +1,10 @@
 # Hill Finder
 
-Simple app for finding hills.
+Simple app for finding hills. Front-end built with Bootstrap, EJS, JavaScript, and HTML/CSS. Back-end built with Express.
 
 ## Example
 
-Searching for hills with at least 10 meters in elevation gain in Central Park. Front-end built with Bootstrap, EJS, JavaScript, and HTML/CSS. Back-end built with Express.
+Searching for hills with at least 10 meters in elevation gain in Central Park. 
 
 <img src="images/search.png" width=360>
 
