@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hills</title>
+    <link rel="stylesheet" href="/bootstrap.min.css" />
+    <link rel="stylesheet" href="/hills_styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="display-1">Results</h1>
+      <hr />
+      <div class="row">
+        <% for (segment of data) { %>
+            <div class="card col-md-6 my-1">
+                <img src="<%=segment.elev_profile%>" class="card-img-top mx-auto elevation" />
+                <div class="card-body">
+                    <h5 class="card-title text-center"><%=segment.name%></h5>
+                    <p class="card-text">
+                    <ul>
+                        <li><b>Elevation Difference: </b><%=segment.elev_difference%> meters</li>
+                        <li><b>Distance: </b><%=segment.distance%> meters</li>
+                        <li><b>Gradient: </b><%=segment.avg_grade%>% average, <%=segment.max_grade%>% max</li>
+                        <li><b>Popularity: </b><%=segment.effort_count%> efforts by <%=segment.athlete_count%> athletes</li>
+                    </ul>
+                    </p>
+                    <div class="d-grid col-6 mx-auto">
+                    <a
+                    href="https://www.strava.com/segments/<%=segment.id%>"
+                    class="btn btn-primary mx-auto"
+                    >Link to Strava Segment</a
+                    >
+                    </div>
+                </div>
+            </div>
+        <% } %></div>
+        <a href="/" class="btn btn-warning mt-5" tabindex="-1" role="button" aria-disabled="true">Back to Home</a>
+        </div>
+    <script src="/bootstrap.min.js"></script>
+  </body>
+</html>

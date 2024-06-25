@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hill Finder</title>
+    <link rel="stylesheet" href="/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container" style="height: 100%">
+      <h1 class="display-1 text-center">Hill Finder</h1>
+      <hr>
+      <p class="text-center mb-0 fs-5"><b>Drag and zoom</b> to find your area<br>Then use the <b>square icon in the upper toolbar</b> to draw a rectangle where hills will be searched<br>Keep rectangle relatively small (no bigger than a town please!)</b></p>
+      <div id="map" class="mb-2 " style="height: 50%"></div>
+      <form action="/hills">
+        <input type="hidden" name="NElt" id="NElt">
+        <input type="hidden" name="NElng" id="NElng">
+        <input type="hidden" name="SWlt" id="SWlt">
+        <input type="hidden" name="SWlng" id="SWlng">
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="elev_gain" class="fs-5">Minimum Elevation Gain (meters)</label>
+            <input
+              type="number"
+              class="form-control"
+              id="elev_gain"
+              min="1"
+              name="elev_gain"
+              value="10"
+              required
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="distance" class="fs-5">Maximum Distance (meters)</label>
+            <input
+              type="number"
+              class="form-control"
+              id="distance"
+              min="1"
+              value="800"
+              name="distance"
+              required
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <a href="/" class="btn btn-danger mt-3 me-2" tabindex="-1" role="button" aria-disabled="true">Reset Everything</a>
+            <button id="search" class="btn btn-success mt-3" disabled>Search</button>
+          </div>
+        </div>
+      </form>
+    <script src="/bootstrap.min.js"></script>
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=API_KEY&loading=async&callback=initMap&libraries=drawing,maps"
+    ></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
