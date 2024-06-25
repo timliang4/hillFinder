@@ -6,11 +6,11 @@ Simple app for finding hills. Front-end built with Bootstrap, EJS, JavaScript, a
 
 Searching for hills with at least 10 meters in elevation gain in Central Park. 
 
-<img src="images/search.png" width=360>
+<img src="images/search.png" width=420>
 
 Results provide an elevation profile and other hill metrics for each segment.
 
-<img src="images/results.png" width=360>
+<img src="images/results.png" width=420>
 
 The [Strava](https://www.strava.com/) links can be used to obtain detailed location information.
 
