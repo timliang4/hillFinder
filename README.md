@@ -1,1 +1,1 @@
-# hill_finder_public
+# Hill Finder
