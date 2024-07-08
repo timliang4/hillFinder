@@ -2,7 +2,7 @@
 
 #### *A web app for finding hills to run/bike on.*
 
-## Link
+## Website
 
 This project is deployed using AWS Elastic Beanstalk at this [link](http://hillfinder-env-3.eba-9udekxwn.us-east-1.elasticbeanstalk.com/).
 
