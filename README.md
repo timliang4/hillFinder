@@ -1,6 +1,6 @@
 # hillFinder
 
-> *A web app for finding hills to run/bike on.*
+### *A web app for finding hills to run/bike on.*
 
 ---
 
