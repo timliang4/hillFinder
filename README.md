@@ -1,6 +1,6 @@
 # hillFinder
 
-> Simple app for finding hills. Front-end built with Bootstrap, EJS, JavaScript, and HTML/CSS. Back-end built with Express.
+> A web app for finding hills to run/bike on.
 
 ## Link
 
