@@ -1,8 +1,12 @@
-# Hill Finder
+# hillFinder
 
-Simple app for finding hills. Front-end built with Bootstrap, EJS, JavaScript, and HTML/CSS. Back-end built with Express.
+> Simple app for finding hills. Front-end built with Bootstrap, EJS, JavaScript, and HTML/CSS. Back-end built with Express.
 
-## Example
+## Link
+
+This project is deployed using AWS Elastic Beanstalk at this [link](http://hillfinder-env-3.eba-9udekxwn.us-east-1.elasticbeanstalk.com/).
+
+## Usage Example
 
 Searching for hills with at least 10 meters in elevation gain in Central Park. 
 
