@@ -6,7 +6,7 @@ const btn = document.getElementById('search');
 
 function initMap() {
     const map = new google.maps.Map(document.getElementById("map"), {
-      center: { lat: -34.397, lng: 150.644 },
+      center: { lat: 40.780876, lng: -73.966765 },
       zoom: 8,
     });
     const drawingManager = new google.maps.drawing.DrawingManager({
