@@ -8,7 +8,11 @@ Try it out: [hill-finder.com](https://hill-finder.com/)
 
 ## Code
 
-The ```app.js``` file routes incoming requests using the Express framework. The ```model.js``` file handles the hill searching and filtering. Finally, the ```public``` and ```views``` folders contain EJS, JavaScript, CSS, and more files that are served to the client.
+The ```app.js``` file routes incoming requests using the Express framework. 
+
+The ```model.js``` file provides functions for hill searching and filtering. 
+
+Finally, the ```public``` and ```views``` folders contain EJS, JavaScript, CSS, and icons that are served to the client.
 
 ## Support
 
