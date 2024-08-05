@@ -1,22 +1,14 @@
 # hillFinder
 
-#### *A web app for finding hills to run/bike on.*
+>A web app for finding hills to run/bike on.
 
 ## Website
 
-This project is deployed using AWS Elastic Beanstalk at this [link](http://hillfinder-env-3.eba-9udekxwn.us-east-1.elasticbeanstalk.com/).
+Try it out: [hill-finder.com](https://hill-finder.com/)
 
-## Usage Example
+## Code
 
-Searching for hills with at least 10 meters in elevation gain in Central Park. 
-
-<img src="images/search.png" width=420>
-
-Results provide an elevation profile and other hill metrics for each segment.
-
-<img src="images/results.png" width=420>
-
-The [Strava](https://www.strava.com/) links can be used to obtain detailed location information.
+The ```app.js``` file routes incoming requests using the Express framework. The ```model.js``` file handles the hill searching and filtering. Finally, the ```public``` and ```views``` folders contain EJS, JavaScript, CSS, and more files that are served to the client.
 
 ## Support
 
