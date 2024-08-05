@@ -6,37 +6,52 @@
     <title>Hills</title>
     <link rel="stylesheet" href="/bootstrap.min.css" />
     <link rel="stylesheet" href="/hills_styles.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
   </head>
   <body>
     <div class="container">
       <h1 class="display-1">Results</h1>
       <hr />
-      <div class="row">
-        <% for (segment of data) { %>
-            <div class="card col-md-6 my-1">
-                <img src="<%=segment.elev_profile%>" class="card-img-top mx-auto elevation" />
-                <div class="card-body">
-                    <h5 class="card-title text-center"><%=segment.name%></h5>
-                    <p class="card-text">
-                    <ul>
-                        <li><b>Elevation Difference: </b><%=segment.elev_difference%> meters</li>
-                        <li><b>Distance: </b><%=segment.distance%> meters</li>
-                        <li><b>Gradient: </b><%=segment.avg_grade%>% average, <%=segment.max_grade%>% max</li>
-                        <li><b>Popularity: </b><%=segment.effort_count%> efforts by <%=segment.athlete_count%> athletes</li>
-                    </ul>
-                    </p>
-                    <div class="d-grid col-6 mx-auto">
-                    <a
-                    href="https://www.strava.com/segments/<%=segment.id%>"
-                    class="btn btn-primary mx-auto"
-                    >Link to Strava Segment</a
-                    >
-                    </div>
-                </div>
-            </div>
-        <% } %></div>
-        <a href="/" class="btn btn-warning mt-5" tabindex="-1" role="button" aria-disabled="true">Back to Home</a>
+      <% if (!data) {%>
+        <p class="text-center mb-1 fs-5">Sorry, error loading data. Click "Back to Search" to try again.</p>
+      <% } else if (data.length == 0) {%>
+        <p class="text-center mb-1 fs-5">Sorry, no hills found in that area. Click "Back to Search" to adjust your search rectangle or parameters.</p>
+      <% } else {%>
+        <div class="row">
+          <% for (segment of data) { %>
+              <div class="card col-md-6 my-1">
+                  <img src="<%=segment.elev_profile%>" class="card-img-top mx-auto elevation" />
+                  <div class="card-body">
+                      <h5 class="card-title text-center"><%=segment.name%></h5>
+                      <p class="card-text">
+                      <ul>
+                          <li><b>Elevation Difference: </b><%=segment.elev_difference%> meters</li>
+                          <li><b>Distance: </b><%=segment.distance%> meters</li>
+                          <li><b>Gradient: </b><%=segment.avg_grade%>% average, <%=segment.max_grade%>% max</li>
+                          <li><b>Popularity: </b><%=segment.effort_count%> efforts by <%=segment.athlete_count%> athletes</li>
+                      </ul>
+                      </p>
+                      <div class="d-grid col-6 mx-auto">
+                      <a
+                      href="https://www.strava.com/segments/<%=segment.id%>"
+                      class="btn btn-primary mx-auto"
+                      >Link to Strava Segment</a
+                      >
+                      </div>
+                  </div>
+              </div>
+          <% } %>
         </div>
+      <% } %>
+      <a href="javascript:history.back()" class="btn btn-warning mt-3 mb-3" tabindex="-1" role="button" aria-disabled="true">Back to Search</a>
+    </div>
     <script src="/bootstrap.min.js"></script>
+    <script src="/hills_app.js"></script>
   </body>
 </html>

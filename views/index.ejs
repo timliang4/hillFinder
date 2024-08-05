@@ -6,42 +6,68 @@
     <title>Hill Finder</title>
     <link rel="stylesheet" href="/bootstrap.min.css" />
     <link rel="stylesheet" href="/styles.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
   </head>
   <body>
     <div class="container" style="height: 100%">
       <h1 class="display-1 text-center">Hill Finder</h1>
       <hr>
-      <p class="text-center mb-0 fs-5"><b>Drag and zoom</b> to find your area<br>Then use the <b>square icon in the upper toolbar</b> to draw a rectangle where hills will be searched<br>Keep rectangle relatively small (no bigger than a town please!)</b></p>
-      <div id="map" class="mb-2 " style="height: 50%"></div>
+      <p class="text-center mb-1 fs-5">Draw a rectangle where hills will be searched. Maximum size is <b>20km</b> along the diagonal.</p>
+      <p class="text-center mb-2 fs-6">The <b>10</b> most popular Strava segments in the rectangle will be filtered based on elevation gain and distance.</p>
+      <div class="text-center mb-2">
+        <button id="rect">Draw Rectangle</button>
+        <button id="clear" disabled>Clear Rectangle</button>
+      </div>
+      <div id="map" class="mb-2" style="height: 50%"></div>
+      <div id="alert" class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+        <strong>Maximum rectangle size exceeded (8km diagonal).</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
       <form action="/hills">
         <input type="hidden" name="NElt" id="NElt">
         <input type="hidden" name="NElng" id="NElng">
         <input type="hidden" name="SWlt" id="SWlt">
         <input type="hidden" name="SWlng" id="SWlng">
         <div class="row">
-          <div class="form-group col-md-6">
-            <label for="elev_gain" class="fs-5">Minimum Elevation Gain (meters)</label>
+          <div class="form-group col-md-5">
+            <label for="elev_gain" class="fs-6">Minimum Elevation Gain (meters) <span style="font-size: 12px; color: gray">(minimum: 0)</span></label>
             <input
               type="number"
               class="form-control"
               id="elev_gain"
-              min="1"
+              min="0"
               name="elev_gain"
-              value="5"
+              value="0"
               required
             />
           </div>
-          <div class="form-group col-md-6">
-            <label for="distance" class="fs-5">Maximum Distance (meters)</label>
+          <div class="form-group col-md-5">
+            <label for="distance" class="fs-6">Maximum Distance (meters) <span style="font-size: 12px; color: gray">(minimum: 200, maximum: 20000)</span></label>
             <input
               type="number"
               class="form-control"
               id="distance"
-              min="1"
-              value="800"
+              min="200"
+              max="20000"
+              value="2000"
               name="distance"
               required
             />
+          </div>
+          <div class="form-group col-md-2">
+            <label for="gradient" class="fs-6">Gradient</label>
+            <select class="form-select" id="gradient" name="gradient">
+              <option value="0" selected>Any</option>
+              <option value="1">&lt 3%</option>
+              <option value="2">3% to 8%</option>
+              <option value="3">&#8805; 8%</option>
+            </select>
           </div>
         </div>
         <div class="row">
@@ -52,10 +78,10 @@
         </div>
       </form>
     <script src="/bootstrap.min.js"></script>
+    <script src="/app.js"></script>
     <script
       async
-      src="https://maps.googleapis.com/maps/api/js?key=API_KEY&loading=async&callback=initMap&libraries=drawing,maps"
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&loading=async&libraries=drawing,maps,geometry&callback=initMap"
     ></script>
-    <script src="/app.js"></script>
   </body>
 </html>

@@ -19,8 +19,8 @@ export async function getSegmentData(strava, bounds, activity='running', minCat=
     }
 }
 
-export function filterHills(segments, max_distance = 800, min_elevation = 10) {
-    return segments.filter(segment => segment.distance <= max_distance && segment.elev_difference >= min_elevation);
+export function filterHills(segments, max_distance = 800, min_elevation = 10, min_grad, max_grad) {
+    return segments.filter(segment => segment.distance <= max_distance && segment.elev_difference >= min_elevation && Math.abs(segment.avg_grade) >= min_grad && Math.abs(segment.avg_grade) < max_grad);
 }
 
 export async function addParams(strava, segments) {
@@ -31,7 +31,7 @@ export async function addParams(strava, segments) {
                 id: segment.id
             };
             const segmentInfo = await strava.segments.getSegmentById(opts);
-            const newSegment = {...segment, effort_count: segmentInfo.effort_count, athlete_count: segmentInfo.athlete_count, max_grade: segmentInfo.maximum_grade, polyline: segmentInfo.map.polyline};
+            const newSegment = {...segment, effort_count: segmentInfo.effort_count, athlete_count: segmentInfo.athlete_count, max_grade: segmentInfo.maximum_grade};
             newSegments.push(newSegment);
         }
         return newSegments;   
